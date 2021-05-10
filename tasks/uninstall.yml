@@ -14,3 +14,8 @@
   package:
     name: "{{ te_axon_package_eg_driver_name }}"
     state: absent
+    
+- name: Uninstall agent axon selinux driver package
+  package:
+    name: "{{ te_axon_package_selinux_policy_name }}"
+    state: absent
