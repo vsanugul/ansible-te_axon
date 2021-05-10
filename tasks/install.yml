@@ -29,6 +29,7 @@
     src: "{{ te_axon_package_selinux_policy_source }}"
     dest: "{{ staging.path }}/{{ te_axon_package_selinux_policy_source|basename }}"
     mode: 0600
+  when: ansible_distribution == "Amazon" or ansible_distribution == "Redhat"
 
 - name: Install agent package
   package:
@@ -49,6 +50,7 @@
   package:
     name: "{{ staging.path }}/{{ te_axon_package_selinux_policy_source|basename }}"
     state: "{{ te_axon_package_selinux_policy_state }}"
+  when: ansible_distribution == "Amazon" or ansible_distribution == "Redhat"
 
 - name: Cleanup staging path
   file:
